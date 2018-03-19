@@ -1,0 +1,13 @@
+@import "base/reset";
+@import "base/fonts";
+@import "base/mixins";
+@import "base/variables";
+// $green_color: #00661a;
+// $dark_title: #800040;
+// $green_hover: #00cc66;
+body,
+html {
+  background-color: $green_color;
+  height: 100%;
+  width: 100%;
+}
