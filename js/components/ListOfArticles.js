@@ -6,20 +6,21 @@ export default class ListOfArticles {
     this.init();
   }
   init() {
-    let el = "";
-    console.log(this.item);
+    let el = "<li>";
     Axios.get(
       `https://nieuws.vtm.be/feed/articles?format=json&ids=${this.item}`
     )
       .then(response => {
-        el += `<li>`;
         response.data.response.items.forEach(element => {
-          el += `<img src='${element.image.uri}'>
-                <h3>${element.title}</h3>`;
+          el += `<img src='${element.image.full}'>
+                <h3>${element.title.replace(/"/g, "")}</h3>
+                <span id="trash_delete"></span>`;
         });
         el += `</li>`;
+        document
+          .getElementById("listHolder")
+          .insertAdjacentHTML("beforeend", el);
       })
       .catch("Something went Wrong!");
-    document.getElementById("listHolder").insertAdjacentHTML("beforeend", el);
   }
 }
