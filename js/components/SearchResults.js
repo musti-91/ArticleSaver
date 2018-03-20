@@ -1,22 +1,21 @@
 import Axios from "axios";
 
 export default class SearchResults {
-  constructor(input, articleHolder) {
-    this.input = input;
+  constructor(item, articleHolder) {
+    this.item = item;
     this.articleHolder = articleHolder;
+    this.favItem = "";
     this.createResult();
+    this.events();
   }
   createResult() {
-    let el = `<ul>`;
-    Axios.get(
-      `https://nieuws.vtm.be/feed/articles/solr?format=json&query=${
-        this.input.value
-      }`
-    )
-      .then(response => {
-        console.log(this.input.value);
-        console.log(response);
-      })
-      .catch("Error");
+    let el = `<li>`;
+    el += `<h3>${this.item.title}</h3>
+           <span id="fav_article"></span></li>`;
+    this.articleHolder.insertAdjacentHTML("beforeend", el);
+    this.favItem = document.getElementById("fav_article");
+  }
+  events() {
+    this.favItem.addEventListener("click", e => {});
   }
 }

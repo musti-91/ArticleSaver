@@ -1,4 +1,5 @@
 import SearchResults from "./SearchResults";
+import Axios from "axios";
 
 export default class SearchArticle {
   constructor(holder, savedArticle) {
@@ -12,19 +13,30 @@ export default class SearchArticle {
   createHTML() {
     let el = `<h2 class="title">Search Article</h2><hr>`;
     el += `<form id="form">
-            <input type="text" id="in_val" class="input">
+            <input type="text" id="in_val" class="input" autocomplete="off">
             <button class="button">Search</button>
-          </form>
-          <div id="articlesHolder" class="block"></div>
+          </form>         
+          <ul id="resultsHolder"></ul>
           `;
     this.holder.insertAdjacentHTML("beforeend", el);
     this.input = document.getElementById("in_val");
-    this.articleHolder = document.getElementById("#articlesHolder");
+    this.articleHolder = document.getElementById("resultsHolder");
   }
   eventsListener() {
     this.holder.querySelector("form").addEventListener("submit", e => {
       e.preventDefault();
-      new SearchResults(this.input, this.articleHolder);
+      this.articleHolder.innerHTML = "";
+      Axios.get(
+        `https://nieuws.vtm.be/feed/articles/solr?format=json&query=${
+          this.input.value
+        }`
+      )
+        .then(response => {
+          response.data.response.items.forEach(item => {
+            new SearchResults(item, this.articleHolder);
+          });
+        })
+        .catch("Error!");
     });
   }
 }

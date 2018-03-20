@@ -12,7 +12,7 @@ export default class ListOfArticles {
     )
       .then(response => {
         response.data.response.items.forEach(element => {
-          el += `<img src='${element.image.full}'>
+          el += `<img src='${element.image.thumb}'>
                 <h3>${element.title.replace(/"/g, "")}</h3>
                 <span id="trash_delete"></span>`;
         });

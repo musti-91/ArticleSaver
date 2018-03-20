@@ -7,6 +7,7 @@ export default class SavedArticle {
     this.holder = holder;
     this.databaseRef = "";
     this.orderSaveElement = "";
+    this.artcileId = "";
     this.firebaseInit();
     this.createHTML();
   }
@@ -27,8 +28,9 @@ export default class SavedArticle {
     el += `<ul id="listHolder">`;
     this.databaseRef.once("value", snapshot => {
       for (let item in snapshot.val()) {
-        new ListOfArticles(snapshot.val()[item]);
-        this.savdedArticles.push(snapshot.val()[item]);
+        this.artcileId = snapshot.val()[item];
+        this.savdedArticles.push(this.artcileId);
+        new ListOfArticles(this.artcileId);
       }
     });
     el += `</ul>`;
