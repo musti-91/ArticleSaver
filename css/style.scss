@@ -46,6 +46,10 @@ html {
     button {
       transition: all 300ms;
       width: 28%;
+      background-color: $dark_title;
+      outline: none;
+      border: 0;
+      color: white;
     }
   }
   #articlesHolder {
@@ -66,7 +70,13 @@ html {
         color: #000;
         font-family: "Lato" sans-serif;
         font-size: 20px;
+        display: flex;
+        p {
+          display: block;
+          width: 80%;
+        }
         &::after {
+          transition: all 300ms;
           @include pseudo($content: "\e807");
           top: 50%;
           right: 1%;
@@ -81,6 +91,7 @@ html {
     }
   }
 }
+
 #savedHolder {
   border-radius: 10px;
   color: #000;
@@ -112,6 +123,7 @@ html {
       h3 {
         margin-right: 5px;
         color: #000;
+        width: 75%;
       }
       &::after {
         @include pseudo($content: "\e805");
