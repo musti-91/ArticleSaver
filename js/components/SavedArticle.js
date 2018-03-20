@@ -1,10 +1,23 @@
+import ListOfArticles from "./ListOfArticles";
+
 export default class SavedArticle {
-  constructor(savedArticles, holder) {
+  constructor(savedArticles, holder, databaseRef) {
     this.savdedArticles = savedArticles;
     this.holder = holder;
-    this.init();
+    this.databaseRef = databaseRef;
+    this.orderSaveElement = "";
+    this.firebaseInit();
+    // make new SavedListItem= new
   }
-  init() {
-    console.log("hello! this is init function");
+  firebaseInit() {
+    let el = `<h2 class="title">Saved Articles</h2>`;
+    el += `<ul id="listHolder">`;
+    this.databaseRef.once("value", snapshot => {
+      for (let item in snapshot.val()) {
+        new ListOfArticles(snapshot.val()[item]);
+      }
+    });
+    el += `</ul>`;
+    this.holder.insertAdjacentHTML("afterbegin", el);
   }
 }

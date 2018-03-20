@@ -1,10 +1,8 @@
 import SavedArticle from "./components/SavedArticle";
-
-// import { config } from "./components/firebase";
+import * as firebase from "firebase";
 const articlesHolder = document.getElementById("articlesHolder");
 const savedHolder = document.getElementById("savedHolder");
-const listHolder = document.getElementById("savedHolder");
-// firebse ref
+// initilizing firebase
 let config = {
   apiKey: "AIzaSyCi7x0Yqp42bjHxr_yABn7fXZ-ioqpHRyo",
   authDomain: "articles-saver.firebaseapp.com",
@@ -14,9 +12,7 @@ let config = {
   messagingSenderId: "1099130202177"
 };
 firebase.initializeApp(config);
-let database = firebase.database().ref("articles-saver");
-loadData.on("value", getData, errorData);
+let databaseRef = firebase.database().ref("articles");
 
-const savedArticles = ["123", "650", "400"];
-
-const savedArticle = new SavedArticle(savedArticles, savedHolder);
+const savedArticles = [];
+const savedArticle = new SavedArticle(savedArticles, savedHolder, databaseRef);
