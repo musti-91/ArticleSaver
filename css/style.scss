@@ -75,16 +75,24 @@ html {
       font-family: "Lato" sans-serif;
       font-size: 20px;
       display: flex;
+      flex-wrap: wrap;
       h3 {
         display: block;
         width: 80%;
+        color: $dark_title;
+      }
+      p {
+        width: 80%;
+        font-size: 14px;
+        color: #000;
       }
       span {
+        width: 5%;
         &::after {
           transition: all 300ms;
           @include pseudo($content: "\e807");
           top: 50%;
-          right: 1%;
+          right: 2%;
           width: 20px;
           height: 20px;
           margin-top: -10px;
@@ -144,6 +152,9 @@ html {
           font-family: $icons;
           color: rgba(0, 0, 0, 0.6);
           transition: all 300ms;
+        }
+        &:hover::after {
+          color: orange;
         }
       }
     }

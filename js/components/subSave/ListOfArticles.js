@@ -3,16 +3,17 @@ import Axios from "axios";
 export default class ListOfArticles {
   constructor(item) {
     this.item = item;
+    this.deleteButton = "";
     this.init();
   }
   init() {
-    let el = "<li>";
+    let el = `<li>`;
     Axios.get(
       `https://nieuws.vtm.be/feed/articles?format=json&ids=${this.item}`
     )
       .then(response => {
         response.data.response.items.forEach(element => {
-          el += `<img src='${element.image.thumb}'>
+          el += `<img src='${element.image.full}'>
                 <h3>${element.title.replace(/"/g, "")}</h3>
                 <span id="trash_delete"></span>`;
         });

@@ -1,10 +1,10 @@
-import SearchResults from "./SearchResults";
+import SearchResults from "./subSearch/SearchResults";
 import Axios from "axios";
 
 export default class SearchArticle {
-  constructor(holder, savedArticle) {
+  constructor(holder, saveArticle) {
     this.holder = holder;
-    this.savedArticle = savedArticle;
+    this.saveArticle = saveArticle;
     this.input = "";
     this.articleHolder = "";
     this.createHTML();
@@ -33,7 +33,7 @@ export default class SearchArticle {
       )
         .then(response => {
           response.data.response.items.forEach(item => {
-            new SearchResults(item, this.articleHolder);
+            new SearchResults(item, this.articleHolder, this.saveArticle);
           });
         })
         .catch("Error!");

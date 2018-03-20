@@ -1,9 +1,9 @@
-import SavedArticle from "./components/SavedArticle";
+import SaveArticle from "./components/SaveArticle";
 import SearchArticle from "./components/SearchArticle";
 const searchHolder = document.getElementById("searchHolder");
 const savedHolder = document.getElementById("savedHolder");
 // initilizing firebase
 
 const savedArticles = [];
-const savedArticle = new SavedArticle(savedArticles, savedHolder);
-const searchArticle = new SearchArticle(searchHolder, savedArticle);
+const saveArticle = new SaveArticle(savedArticles, savedHolder);
+const searchArticle = new SearchArticle(searchHolder, saveArticle);

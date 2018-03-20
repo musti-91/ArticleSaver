@@ -2,8 +2,10 @@
 
 Saving artcile om demand as favourite
 
-* Some nice features
-* Some other nice feature
-* ...
+packages used:
+
+* Axios
+* firebase as database and hosting
+* work with yarn and npm
 
 [comment]: <> ( Learn more about the MarkDown file format on https://dillinger.io/)

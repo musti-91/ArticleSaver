@@ -1,9 +1,9 @@
-import ListOfArticles from "./ListOfArticles";
+import ListOfArticles from "./subSave/ListOfArticles";
 import * as firebase from "firebase";
 
-export default class SavedArticle {
+export default class SaveArticle {
   constructor(savedArticles, holder) {
-    this.savdedArticles = savedArticles;
+    this.savedArticles = savedArticles;
     this.holder = holder;
     this.databaseRef = "";
     this.orderSaveElement = "";
@@ -29,7 +29,7 @@ export default class SavedArticle {
     this.databaseRef.once("value", snapshot => {
       for (let item in snapshot.val()) {
         this.artcileId = snapshot.val()[item];
-        this.savdedArticles.push(this.artcileId);
+        this.savedArticles.push(this.artcileId);
         new ListOfArticles(this.artcileId);
       }
     });
