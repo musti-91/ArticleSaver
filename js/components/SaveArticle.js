@@ -26,7 +26,7 @@ export default class SaveArticle {
   createHTML() {
     let el = `<h2 class="title">Saved Articles</h2><hr>`;
     el += `<ul id="listHolder">`;
-    this.databaseRef.once("value", snapshot => {
+    this.databaseRef.on("value", snapshot => {
       for (let item in snapshot.val()) {
         this.artcileId = snapshot.val()[item];
         this.savedArticles.push(this.artcileId);

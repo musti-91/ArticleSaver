@@ -5,17 +5,7 @@ export default class FavouriteItem {
     this.init();
   }
   init() {
-    console.log("target: ", this.target.id);
-    this.saveArticleObject.savedArticles.forEach(elementId => {
-      console.log(elementId);
-      // if (elementId == this.target.id) {
-      //   console.log("matched");
-      // } else {
-      //   console.log("not matched");
-      // }
-      // todo :
-      // 1- check if the element is Exist in array ==>add class if not
-      // connect firebase to add id
-    });
+    this.target.classList.add("active");
+    this.saveArticleObject.databaseRef.push(this.target.id);
   }
 }

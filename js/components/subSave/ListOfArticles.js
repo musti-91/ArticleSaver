@@ -4,7 +4,9 @@ export default class ListOfArticles {
   constructor(item) {
     this.item = item;
     this.deleteButton = "";
+    this.listHolder = "";
     this.init();
+    this.eventsListener();
   }
   init() {
     let el = `<li>`;
@@ -23,5 +25,8 @@ export default class ListOfArticles {
           .insertAdjacentHTML("beforeend", el);
       })
       .catch("Something went Wrong!");
+    this.listHolder = document.getElementById("listHolder");
+    this.deleteButton = document.getElementById("trash_delete");
   }
+  eventsListener() {}
 }
