@@ -13,11 +13,7 @@ export default class SearchResults {
     this.events();
   }
   addScrollbar() {
-    this.ps = new PerfectScrollbar(this.articleHolder.parentElement, {
-      wheelSpeed: 2,
-      wheelPropagation: false,
-      minScrollbarLength: 10
-    });
+    this.ps = "";
   }
   createResult() {
     let el = `<li>`;
@@ -27,7 +23,6 @@ export default class SearchResults {
            </li>`;
     this.articleHolder.insertAdjacentHTML("beforeend", el);
     this.favItem = document.getElementById(`${this.item.fields.entity_id}`);
-    this.ps.update();
   }
   events() {
     this.favItem.addEventListener("click", e => {

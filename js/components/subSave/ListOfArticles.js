@@ -1,5 +1,4 @@
 import Axios from "axios";
-import PerfectScrollbar from "perfect-scrollbar";
 export default class ListOfArticles {
   constructor(item) {
     this.item = item;
@@ -11,11 +10,7 @@ export default class ListOfArticles {
     this.eventsListener();
   }
   addScrollbar() {
-    this.ps = new PerfectScrollbar("#listHolder", {
-      wheelSpeed: 2,
-      wheelPropagation: false,
-      minScrollbarLength: 10
-    });
+    this.ps = "";
   }
   init() {
     let el = `<li>`;
@@ -35,7 +30,6 @@ export default class ListOfArticles {
       })
       .catch("Something went Wrong!");
     this.listHolder = document.getElementById("listHolder");
-    this.ps.update();
     this.deleteButton = document.getElementById("trash_delete");
   }
   eventsListener() {}
