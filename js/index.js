@@ -1,5 +1,7 @@
 import SaveArticle from "./components/SaveArticle";
 import SearchArticle from "./components/SearchArticle";
+import Scrollbar from "smooth-scrollbar";
+
 const searchHolder = document.getElementById("searchHolder");
 const savedHolder = document.getElementById("savedHolder");
 // initilizing firebase
@@ -7,3 +9,5 @@ const savedHolder = document.getElementById("savedHolder");
 const savedArticles = [];
 const saveArticle = new SaveArticle(savedArticles, savedHolder);
 const searchArticle = new SearchArticle(searchHolder, saveArticle);
+
+Scrollbar.init(document.body);

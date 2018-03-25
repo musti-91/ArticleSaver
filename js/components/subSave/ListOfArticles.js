@@ -1,4 +1,5 @@
 import Axios from "axios";
+import Scrollbar from "smooth-scrollbar";
 export default class ListOfArticles {
   constructor(item) {
     this.item = item;
@@ -10,7 +11,7 @@ export default class ListOfArticles {
     this.eventsListener();
   }
   addScrollbar() {
-    this.ps = "";
+    Scrollbar.initAll();
   }
   init() {
     let el = `<li>`;
