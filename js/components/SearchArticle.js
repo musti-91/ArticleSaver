@@ -15,7 +15,7 @@ export default class SearchArticle {
     el += `<form id="form">
             <input type="text" id="in_val" class="input" autocomplete="off">
             <button class="button">Search</button>
-          </form>         
+          </form>
           <ul id="resultsHolder"></ul>
           `;
     this.holder.insertAdjacentHTML("beforeend", el);

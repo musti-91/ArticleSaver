@@ -1,11 +1,14 @@
 export default class FavouriteItem {
-  constructor(target, saveArticleObject) {
+  constructor(target, isChecked) {
     this.target = target;
-    this.saveArticleObject = saveArticleObject;
+    this.isChecked = isChecked;
     this.init();
   }
   init() {
-    this.target.classList.add("active");
-    this.saveArticleObject.databaseRef.push(this.target.id);
+    if (this.isChecked) {
+      this.target.classList.add("active");
+    } else {
+      this.target.classList.remove("active");
+    }
   }
 }
