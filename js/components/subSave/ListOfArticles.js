@@ -11,6 +11,7 @@ export default class ListOfArticles {
     this.events();
   }
   getArticle() {
+    Scrollbar.init(document.getElementById("listHolder"));
     Axios.get(`https://nieuws.vtm.be/feed/articles?format=json&ids=${this.id}`)
       .then(response => {
         this.article = response.data.response.items[0];
@@ -23,9 +24,7 @@ export default class ListOfArticles {
   init() {
     let el = `<li data-id="${this.article.id}">`;
     el += `<img src='${this.article.image.full}'>
-                <h3>${this.article.title.replace(/"/g, "")}(id: ${
-      this.article.id
-    })</h3>
+                <h3>${this.article.title.replace(/"/g, "")}</h3>
                 <span id="trash_delete"></span>`;
     el += `</li>`;
     this.holder.insertAdjacentHTML("beforeend", el); // ul

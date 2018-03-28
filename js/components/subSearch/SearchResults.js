@@ -14,7 +14,7 @@ export default class SearchResults {
     this.createResult();
   }
   addScrollbar() {
-    this.ps = Scrollbar.init(this.articleHolder);
+    Scrollbar.init(document.getElementById("resultsHolder"));
   }
   createResult() {
     let el = `<li data-id="${this.item.fields.entity_id}" id="search-${
@@ -27,7 +27,6 @@ export default class SearchResults {
                 <p>${this.item.snippets.content} <a href='${
       this.item.fields.url
     }' target="_blank">Read more</a></p>
-    <p>${this.item.fields.entity_id}</p>
                 <span id="heart"></span>
            </li>`;
     this.articleHolder.insertAdjacentHTML("beforeend", el);

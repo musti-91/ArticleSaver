@@ -26,5 +26,3 @@ const searchArticle = new SearchArticle(
 
 // add scrollbar for body  :: needs to be on the eveny component.
 Scrollbar.init(document.body);
-Scrollbar.init(document.getElementById("resultsHolder"));
-Scrollbar.init(document.getElementById("listHolder"));

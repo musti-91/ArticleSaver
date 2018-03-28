@@ -28,7 +28,7 @@ export default class Heart {
         document.getElementById("trash_delete").click();
       } else {
         e.target.classList.add("active");
-        this.savedArticles.push(this.id);
+        this.savedArticles.push(parseInt(this.id));
         this.firebaseRef.set(this.savedArticles);
       }
     } else if (e.target.nodeName == "H3") {
