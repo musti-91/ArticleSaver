@@ -15,10 +15,16 @@ let config = {
   messagingSenderId: "1099130202177"
 };
 firebase.initializeApp(config);
-const databaseRef = firebase.database().ref("articles");
+const firebaseRef = firebase.database().ref("articles");
 const savedArticles = [];
-const saveArticle = new SaveArticle(savedArticles, savedHolder, databaseRef);
-// const searchArticle = new SearchArticle(searchHolder, saveArticle);s
+const saveArticle = new SaveArticle(savedArticles, savedHolder, firebaseRef);
+const searchArticle = new SearchArticle(
+  searchHolder,
+  savedArticles,
+  firebaseRef
+);
 
 // add scrollbar for body  :: needs to be on the eveny component.
-// Scrollbar.init(document.body);
+Scrollbar.init(document.body);
+Scrollbar.init(document.getElementById("resultsHolder"));
+Scrollbar.init(document.getElementById("listHolder"));

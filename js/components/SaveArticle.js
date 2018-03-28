@@ -14,7 +14,7 @@ export default class SaveArticle {
   }
   createHTML() {
     let el = `<h2 class="title">Saved Articles</h2><hr>`;
-    el += `<ul id="listHolder">`;
+    el += `<ul id="listHolder" data-scrollbar>`;
     el += `</ul>`;
     this.holder.insertAdjacentHTML("afterbegin", el);
     this.ulHolder = this.holder.querySelector("ul#listHolder");
@@ -58,7 +58,7 @@ export default class SaveArticle {
                     <p>${item.airdate.formatted}</p>`;
                 html += `<p><strong> <a href='${
                   item.url
-                }'>read more..</a></strong></p>`;
+                }' target='_blank'>read more..</a></strong></p>`;
                 html += `</div></div>`;
                 this.$contentEl.innerHTML = html;
               })
