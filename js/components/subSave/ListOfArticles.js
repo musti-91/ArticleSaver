@@ -7,7 +7,6 @@ export default class ListOfArticles {
     this.holder = holder;
     this.article = "";
     this.getArticle();
-    // this.init();  https://nieuws.vtm.be/feed/articles?format=json&ids=
     this.events();
   }
   getArticle() {

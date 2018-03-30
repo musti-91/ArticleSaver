@@ -1,3 +1,5 @@
+import ListOfArticles from "../subSave/ListOfArticles";
+
 export default class Heart {
   constructor(isChecked, list, firebaseRef, savedArticles) {
     this.isChecked = isChecked;
@@ -29,10 +31,15 @@ export default class Heart {
       } else {
         e.target.classList.add("active");
         this.savedArticles.push(parseInt(this.id));
+        new ListOfArticles(
+          parseInt(this.id),
+          document.getElementById("listHolder"),
+          this.firebaseRef
+        );
         this.firebaseRef.set(this.savedArticles);
       }
     } else if (e.target.nodeName == "H3") {
-      console.log("h3 is clicked // play with -it later");
+      // create Element to popups
     }
   }
 }

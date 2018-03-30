@@ -14,6 +14,7 @@ let config = {
   storageBucket: "",
   messagingSenderId: "1099130202177"
 };
+
 firebase.initializeApp(config);
 const firebaseRef = firebase.database().ref("articles");
 const savedArticles = [];
@@ -23,6 +24,7 @@ const searchArticle = new SearchArticle(
   savedArticles,
   firebaseRef
 );
-
+// TODO: click to heart should delete the right element from saved artciles
+//     : delete element from  save list should delete the hearty from search results list
 // add scrollbar for body  :: needs to be on the eveny component.
 Scrollbar.init(document.body);

@@ -38,8 +38,11 @@ export default class SaveArticle {
         // remove from DOM
         e.target.parentElement.remove();
         // remove from firebase
-
         this.firebaseRef.set(this.savedArticles);
+        // remove class  active from searchresults list
+        document
+          .getElementById(`search-${id}`)
+          .childNodes[3].classList.remove("active");
       } else if (e.target.parentElement.nodeName == "LI") {
         //  popups
         popupS.window({
