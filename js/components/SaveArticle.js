@@ -1,5 +1,6 @@
 import ListOfArticles from "./subSave/ListOfArticles";
 import Axios from "axios";
+import { parse } from "url";
 let popupS = require("popups");
 export default class SaveArticle {
   constructor(savedArticles, holder, firebaseRef) {
@@ -41,8 +42,8 @@ export default class SaveArticle {
         this.firebaseRef.set(this.savedArticles);
         // remove class  active from searchresults list
         document
-          .getElementById(`search-${id}`)
-          .childNodes[3].classList.remove("active");
+          .getElementById(`search-${parseInt(id)}`)
+          .childNodes[7].classList.remove("active");
       } else if (e.target.parentElement.nodeName == "LI") {
         //  popups
         popupS.window({
