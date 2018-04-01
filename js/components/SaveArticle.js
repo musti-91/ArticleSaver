@@ -49,21 +49,24 @@ export default class SaveArticle {
         popupS.window({
           mode: "text",
           content: "data doesn't loaded...",
-          className: "bigArticle",
+          className: "animated bounceOut",
           onOpen: function() {
             Axios.get(
-              `https://nieuws.vtm.be/feed/articles?format=json&ids=${id}`
+              // todo later
+              `https://nieuws.vtm.be/feed/articles?format=json&fields=html&ids=${id}`
             )
               .then(response => {
                 let item = response.data.response.items[0];
-                let html = `<div class="bigArticle" id="big-${item.id}">`;
+                let html = `<div class="bigArticle animated bounceIn" id="big-${
+                  item.id
+                }">`;
                 html += `<img src="${item.image.full}">
                         <div><h2>${item.title}</h2>
                     <p>${item.airdate.formatted}</p>`;
-                html += `<p><strong> <a href='${
+                html += `<p>${item.text_html}</p>`;
+                html += `<a href='${
                   item.url
-                }' target='_blank'>read more..</a></strong></p>`;
-                html += `</div></div>`;
+                }'>Source in vtm.be</a></div></div>`;
                 this.$contentEl.innerHTML = html;
               })
               .catch(error => {
@@ -71,9 +74,7 @@ export default class SaveArticle {
               });
           },
           onSubmit: function(val) {},
-          onClose: function() {
-            console.log("popups is closed// later added some functionalitty");
-          }
+          onClose: function() {}
         });
       }
     });

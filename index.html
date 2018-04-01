@@ -8,6 +8,7 @@
   <title>Articles</title>
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <style>
     /* popupS Style */
 
@@ -227,31 +228,10 @@
 </head>
 
 <body>
-  <div class="container">
-    <div id="searchHolder" class="block">
-
-      <!-- createResult() { let el = `
-      <li>`; el += `
-        <img src="${this.item.fields.image_path}">
-        <h3>${this.item.title}
-          <p>${this.item.fields.ds_created .replace("T", " ") .replace("Z", " ")}</p>
-        </h3>
-        <p>${this.item.snippets.content}
-          <a href='${
-            this.item.fields.url
-          }' target="_blank">Read more</a>
-        </p>
-        <span id="${this.item.fields.entity_id}"></span>
-      
-      </li>`; this.articleHolder.insertAdjacentHTML("beforeend", el); this.favItem = document.getElementById(`${this.item.fields.entity_id}`);
-      } -->
+  <div class="container animated infinite jackInTheBox">
+    <div id="searchHolder" class="block animated rubberBand">
     </div>
-    <div id="savedHolder" class="block">
-      <!-- init() { this.htmlElement = `
-      <li>`; this.htmlElement += `
-        <img src='${this.article.image.full}'>
-        <h3>${this.article.title.replace(/"/g, "")}</h3>
-        <span id="trash_delete"></span>`; this.htmlElement += `</li>`; this.listHolder.insertAdjacentHTML("beforeend", this.htmlElement); } -->
+    <div id="savedHolder" class="block animated wobble">
     </div>
   </div>
   <script src="./js/index.js"></script>

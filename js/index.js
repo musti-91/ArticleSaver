@@ -6,9 +6,6 @@ const searchHolder = document.getElementById("searchHolder");
 const savedHolder = document.getElementById("savedHolder");
 // initilizing firebase
 //********************** */
-//TODO // ADD SOME FEATURES ON APPLICATION
-// SCROLLBAR SHOULD BE APPLIED WITH EVERY LIST.
-/************************************* */
 let config = {
   apiKey: "AIzaSyCi7x0Yqp42bjHxr_yABn7fXZ-ioqpHRyo",
   authDomain: "articles-saver.firebaseapp.com",

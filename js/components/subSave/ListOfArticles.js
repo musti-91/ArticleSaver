@@ -7,7 +7,6 @@ export default class ListOfArticles {
     this.holder = holder;
     this.article = "";
     this.getArticle();
-    this.events();
   }
   getArticle() {
     Scrollbar.init(document.getElementById("listHolder"));
@@ -21,14 +20,11 @@ export default class ListOfArticles {
       });
   }
   init() {
-    let el = `<li data-id="${this.article.id}">`;
+    let el = `<li data-id="${this.article.id}" class="animated rollIn">`;
     el += `<img src='${this.article.image.full}'>
                 <h3>${this.article.title.replace(/"/g, "")}</h3>
                 <span id="trash_delete"></span>`;
     el += `</li>`;
     this.holder.insertAdjacentHTML("beforeend", el); // ul
-  }
-  events() {
-    this.holder.addEventListener("click", e => {});
   }
 }

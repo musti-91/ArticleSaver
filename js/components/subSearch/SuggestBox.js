@@ -33,7 +33,7 @@ export default class SuggestBox {
     this.holder.innerHTML = "";
     this.suggestions.forEach(element => {
       this.nr++;
-      html += `<li id="suggestItem-${this.nr}">
+      html += `<li id="suggestItem-${this.nr}" class="animated lightSpeedIn">
                     <h4>${element.title}</h4>
           </li>`;
     });
@@ -53,8 +53,8 @@ export default class SuggestBox {
     if (e.keyCode == 38 || e.keyCode == 40 || e.keyCode == 13) {
       if (e.keyCode == 13) {
         this.choose(
-          document.getElementById(`suggestItem-${this.nr}`).childNodes[1]
-            .innerHTML
+          document.getElementById(`suggestItem-${this.selectIndex}`)
+            .childNodes[1].innerHTML
         );
       }
       if (e.keyCode == 40) {

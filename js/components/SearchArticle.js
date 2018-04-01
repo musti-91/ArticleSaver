@@ -1,6 +1,5 @@
 import SearchResults from "./subSearch/SearchResults";
 import Axios from "axios";
-import Suggest from "./subSearch/Suggest";
 import SuggestBox from "./subSearch/SuggestBox";
 
 export default class SearchArticle {
@@ -17,7 +16,7 @@ export default class SearchArticle {
     let el = `<h2 class="title">Search Article</h2><hr>`;
     el += `<form id="form">
             <input type="text" id="in_val" class="input" autocomplete="off" autofocus>
-            <button class="button">Search</button>
+            <button class="button animated infinite jello">Search</button>
           </form>
           <ul id="resultsHolder" data-scrollbar></ul>
           `;
@@ -28,6 +27,7 @@ export default class SearchArticle {
   eventsListener() {
     this.holder.querySelector("form").addEventListener("submit", e => {
       e.preventDefault();
+      document.querySelector("button").classList.remove("infinite");
       this.articleHolder.innerHTML = "";
       if (this.validate(this.input)) {
         Axios.get(

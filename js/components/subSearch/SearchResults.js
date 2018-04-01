@@ -19,7 +19,7 @@ export default class SearchResults {
   createResult() {
     let el = `<li data-id="${this.item.fields.entity_id}" id="search-${
       this.item.fields.entity_id
-    }">`;
+    }" class="animated slideInDown">`;
     el += `     <img src="${this.item.fields.image_path}">
                 <h3>${this.item.title} <p>${this.item.fields.ds_created
       .replace("T", " ")
@@ -27,7 +27,7 @@ export default class SearchResults {
                 <p>${this.item.snippets.content} <a href='${
       this.item.fields.url
     }' target="_blank">Read more</a></p>
-                <span id="heart"></span>
+                <span id="heart" class="animated jello"></span>
            </li>`;
     this.articleHolder.insertAdjacentHTML("beforeend", el);
     this.isSaved = this.inArray(this.item.fields.entity_id, this.savedArticles);

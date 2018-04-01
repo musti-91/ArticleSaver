@@ -22,6 +22,7 @@ html {
   transition: all 300ms;
   padding-top: 20px;
   width: 80%;
+  height: 100%;
   margin: 0 auto;
   display: grid;
   grid-gap: 10px;
@@ -139,16 +140,22 @@ html {
           right: 1%;
           width: 20px;
           height: 20px;
+          line-height: 20px;
           margin-top: -10px;
           font-family: $icons;
           font-size: 20px;
           color: $dark_title;
+          transition: all 300ms;
         }
         &.active {
           &::after {
             content: "\e804";
             color: $dark_title;
           }
+        }
+        &:hover::after {
+          transform: scale(1.03);
+          color: $dark_title;
         }
       }
       &.chosen {
@@ -220,7 +227,10 @@ html {
     }
   }
 }
+// div>img +div>h2 +p + p +
 div.bigArticle {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
   img {
@@ -228,23 +238,29 @@ div.bigArticle {
     display: block;
     height: 50%;
     width: 100%;
-  }
-  p,
-  a {
-    display: block;
-    font-size: 15px;
-    font-family: "Lato", sans-serif;
-    font-weight: 500;
+    margin-bottom: 10px;
   }
   & > div {
     width: 100%;
     h2 {
-      margin-top: -60px;
+      font-family: Lato;
       color: $dark_title;
-      font-family: "Lato", sans-serif;
-      font-size: 20px;
+      font-size: 24px;
+      font-family: Lato;
       font-weight: 400;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #000;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+    a {
+      display: block;
       width: 100%;
+      text-align: left;
+      font-size: 15px;
+      color: $dark_title;
     }
   }
 }
