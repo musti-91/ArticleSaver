@@ -49,9 +49,14 @@ html {
       transition: all 300ms;
       width: 70%;
       margin-right: 10px;
+      &.error {
+        background-color: $dark_title;
+        border: 1px solid yellowgreen;
+        color: white;
+      }
     }
     button {
-      transition: all 450ms;
+      transition: all 600ms;
       font-family: "Lato" sans-serif;
       width: 28%;
       font-size: 17px;
@@ -61,8 +66,7 @@ html {
       color: white;
       &:hover {
         color: white;
-        font-weight: bold;
-        background-color: rgba(234, 117, 117, 0.5);
+        background-color: #bd3d3a;
       }
     }
   }
@@ -146,6 +150,10 @@ html {
             color: $dark_title;
           }
         }
+      }
+      &.chosen {
+        background-color: $green_hover;
+        color: white;
       }
     }
   }
