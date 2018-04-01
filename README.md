@@ -1,28 +1,29 @@
-# Dillinger
+# Article Saver
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
 ArticleSaver is application created to get all articles via vtm channel in belgium with ability toi save it in database
 which I used firebase.
-this Application is just for test purposes and uses mutliple features of npm 
+this Application is just for test purposes and uses mutliple features of npm
 
-  - uses node and nmp 
-  - one sigle page application
+* uses node and nmp
+* one sigle page application
 
 # New Features!
 
-  - uses npm to install 
-  - add scrollbar
-  - add popups 
+* uses npm to install
+* add scrollbar
+* add popups
 
 You can also:
-  - Import and save files from GitHub
-  - Drag and drop markdown and HTML files into Dillinger
-  - you should add your database envirmoent .
+
+* Import and save files from GitHub
+* Drag and drop markdown and HTML files into ArticleSaver
+* you should add your database envirmoent .
 
 ### Tech
 
-Dillinger uses a number of open source projects to work properly:
+ArticleDaver uses a number of open source projects to work properly:
 
 * [NodeJS] - HTML enhanced for web apps!
 * [Ace Editor] - awesome web-based text editor
@@ -31,7 +32,7 @@ Dillinger uses a number of open source projects to work properly:
 
 ### Installation
 
-Dillinger requires [Node.js](https://nodejs.org/) v4+ to run.
+articleSaver requires [Node.js](https://nodejs.org/) v4+ to run.
 
 Install the dependencies and devDependencies and start the server.
 
@@ -56,17 +57,19 @@ ArtcileSaver is currently extended with the following plugins. Instructions on h
 
 Want to contribute? Great!
 
-articleSaver uses parecl bundler 
+articleSaver uses parecl bundler
 Make a change in your file and instantanously see your updates!
 
 Open your favorite Terminal and run these commands.
 
 First Tab:
+
 ```sh
 $ node app
 ```
 
 Second Tab:
+
 ```sh
 $ parecl
 ```
@@ -74,5 +77,3 @@ $ parecl
 ```sh
 http://localhost:1234
 ```
-
-
