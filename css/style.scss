@@ -264,6 +264,27 @@ div.bigArticle {
     }
   }
 }
+#loadingIcon {
+  display: block;
+  position: relative;
+  transition: all 300ms;
+  width: 100px;
+  height: 100px;
+  &::after {
+    @include pseudo($content: "\e838");
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    margin-top: -25px;
+    margin-left: -25px;
+    font-size: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-family: $icons;
+    color: $dark_title;
+  }
+}
 @media only screen and (max-width: 800px) {
   .container {
     width: 98%;

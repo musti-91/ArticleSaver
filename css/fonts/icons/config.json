@@ -23,6 +23,12 @@
       "css": "trash-empty",
       "code": 59397,
       "src": "fontawesome"
+    },
+    {
+      "uid": "5d2d07f112b8de19f2c0dbfec3e42c05",
+      "css": "spin5",
+      "code": 59448,
+      "src": "fontelico"
     }
   ]
 }

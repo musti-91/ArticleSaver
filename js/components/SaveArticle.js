@@ -48,30 +48,33 @@ export default class SaveArticle {
         //  popups
         popupS.window({
           mode: "text",
-          content: "data doesn't loaded...",
+          content: `<a href="#" id="loadingIcon"></a>`,
+          labelOk: "",
           className: "animated bounceOut",
           onOpen: function() {
-            Axios.get(
-              // todo later
-              `https://nieuws.vtm.be/feed/articles?format=json&fields=html&ids=${id}`
-            )
-              .then(response => {
-                let item = response.data.response.items[0];
-                let html = `<div class="bigArticle animated bounceIn" id="big-${
-                  item.id
-                }">`;
-                html += `<img src="${item.image.full}">
+            setTimeout(() => {
+              Axios.get(
+                // todo later
+                `https://nieuws.vtm.be/feed/articles?format=json&fields=html&ids=${id}`
+              )
+                .then(response => {
+                  let item = response.data.response.items[0];
+                  let html = `<div class="bigArticle animated bounceIn" id="big-${
+                    item.id
+                  }">`;
+                  html += `<img src="${item.image.full}">
                         <div><h2>${item.title}</h2>
                     <p>${item.airdate.formatted}</p>`;
-                html += `<p>${item.text_html}</p>`;
-                html += `<a href='${
-                  item.url
-                }'>Source in vtm.be</a></div></div>`;
-                this.$contentEl.innerHTML = html;
-              })
-              .catch(error => {
-                console.log(error);
-              });
+                  html += `<p>${item.text_html}</p>`;
+                  html += `<a href='${
+                    item.url
+                  }'>Source in vtm.be</a></div></div>`;
+                  this.$contentEl.innerHTML = html;
+                })
+                .catch(error => {
+                  console.log(error);
+                });
+            }, 450);
           },
           onSubmit: function(val) {},
           onClose: function() {}
