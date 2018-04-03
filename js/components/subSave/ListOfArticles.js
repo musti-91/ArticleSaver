@@ -10,7 +10,6 @@ export default class ListOfArticles {
     this.getArticle();
   }
   getArticle() {
-    this.startDate = Date.now();
     Scrollbar.init(document.getElementById("listHolder"));
     Axios.get(
       `https://nieuws.vtm.be/feed/articles?format=json&fields=html&ids=${
@@ -26,7 +25,6 @@ export default class ListOfArticles {
         console.log(error);
       });
   }
-  // .replace(/"/g, "")
   init() {
     let el = `<li data-id="${this.article.id}" class="animated rollIn">`;
     el += `     <img src='${this.article.image.full}'>
