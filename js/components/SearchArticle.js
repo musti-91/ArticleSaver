@@ -27,9 +27,9 @@ export default class SearchArticle {
   eventsListener() {
     this.holder.querySelector("form").addEventListener("submit", e => {
       e.preventDefault();
-      document.querySelector("button").classList.remove("infinite");
       this.articleHolder.innerHTML = "";
       if (this.validate(this.input)) {
+        document.querySelector("button").classList.remove("infinite");
         Axios.get(
           `https://nieuws.vtm.be/feed/articles/solr?format=json&query=${
             this.input.value

@@ -39,7 +39,6 @@ export default class SearchResults {
       this.savedArticles
     );
   }
-
   inArray(needle, heystack) {
     let length = heystack.length;
     for (let i = 0; i < length; i++) {

@@ -6,6 +6,9 @@ const searchHolder = document.getElementById("searchHolder");
 const savedHolder = document.getElementById("savedHolder");
 // initilizing firebase
 //********************** */
+// todo: firebase intrface login auth
+// add favicon
+// add time since save it in the list
 let config = {
   apiKey: "AIzaSyCi7x0Yqp42bjHxr_yABn7fXZ-ioqpHRyo",
   authDomain: "articles-saver.firebaseapp.com",
