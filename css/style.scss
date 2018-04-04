@@ -2,9 +2,7 @@
 @import "base/fonts";
 @import "base/mixins";
 @import "base/variables";
-// $green_color: #00661a;
-// $dark_title: #800040;
-// $green_hover: #00cc66;
+
 body,
 html {
   background-color: #f5f5f5;
@@ -17,7 +15,81 @@ html {
   background-position: center;
   transition: all 300ms;
 }
-
+#auth {
+  transition: all 600ms;
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  transition: all 300ms;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  form#signup_form,
+  form#signin_form {
+    transition: all 300ms;
+    border-radius: 5px;
+    height: auto;
+    width: 90%;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-top: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    h2 {
+      text-align: center;
+      width: 100%;
+      font-family: Lato;
+      font-size: 20px;
+      color: #000;
+    }
+    label {
+      color: rgba(0, 0, 0, 0.5);
+    }
+    input {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+    button {
+      transition: all 300ms;
+      margin-left: 25%;
+      background-color: #1a8cff;
+      width: 50%;
+      color: white;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    p {
+      width: 100%;
+    }
+    #handleErrors {
+      color: red;
+      display: none;
+    }
+  }
+  form#signup_form {
+    display: none;
+    p {
+      display: none;
+      color: red;
+    }
+  }
+}
+#content {
+  display: none;
+  nav {
+    background-color: initial;
+    h3 {
+      font-size: 20px;
+      color: white;
+      strong {
+        color: #00c4a7;
+      }
+    }
+  }
+}
 .container {
   transition: all 300ms;
   padding-top: 20px;
@@ -294,14 +366,61 @@ div.bigArticle {
     color: $dark_title;
   }
 }
+@media only screen and (max-width: 1500px) {
+  #auth form#signup_form,
+  #auth form#signin_form {
+    width: 40%;
+  }
+}
+@media only screen and (max-width: 1400px) {
+  #auth form#signup_form,
+  #auth form#signin_form {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 1250px) {
+  #auth form#signup_form,
+  #auth form#signin_form {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  #auth form#signup_form,
+  #auth form#signin_form {
+    width: 50%;
+  }
+}
 @media only screen and (max-width: 800px) {
   .container {
     width: 98%;
+  }
+  #auth form#signup_form,
+  #auth form#signin_form {
+    width: 60%;
   }
 }
 @media only screen and (max-width: 750px) {
   .container {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr minmax(500px, 600px);
+  }
+}
+@media only screen and (max-width: 550px) {
+  #auth form#signup_form,
+  #auth form#signin_form {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 420px) {
+  #auth form#signup_form,
+  #auth form#signin_form {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 320px) {
+  #auth form#signup_form,
+  #auth form#signin_form {
+    width: 99%;
   }
 }
