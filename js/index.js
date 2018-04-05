@@ -48,6 +48,8 @@ firebase.auth().onAuthStateChanged(function(user) {
       let name = user.displayName;
       document.getElementById("user_info").innerHTML = loggedEmail;
     }
+    if (user.sendEmailVerification()) {
+    }
     showArticles();
   } else {
     // logout.styling

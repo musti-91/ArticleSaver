@@ -366,6 +366,24 @@ div.bigArticle {
     color: $dark_title;
   }
 }
+@media only screen and (max-width: 2800px) {
+  #auth form#signup_form,
+  #auth form#signin_form {
+    width: 25%;
+  }
+}
+@media only screen and (max-width: 2400px) {
+  #auth form#signup_form,
+  #auth form#signin_form {
+    width: 30%;
+  }
+}
+@media only screen and (max-width: 1700px) {
+  #auth form#signup_form,
+  #auth form#signin_form {
+    width: 35%;
+  }
+}
 @media only screen and (max-width: 1500px) {
   #auth form#signup_form,
   #auth form#signin_form {
@@ -375,29 +393,29 @@ div.bigArticle {
 @media only screen and (max-width: 1400px) {
   #auth form#signup_form,
   #auth form#signin_form {
-    width: 50%;
+    width: 45%;
   }
 }
 @media only screen and (max-width: 1250px) {
   #auth form#signup_form,
   #auth form#signin_form {
-    width: 40%;
+    width: 50%;
   }
 }
 
 @media only screen and (max-width: 950px) {
   #auth form#signup_form,
   #auth form#signin_form {
-    width: 50%;
+    width: 60%;
   }
 }
 @media only screen and (max-width: 800px) {
   .container {
-    width: 98%;
+    width: 80%;
   }
   #auth form#signup_form,
   #auth form#signin_form {
-    width: 60%;
+    width: 85%;
   }
 }
 @media only screen and (max-width: 750px) {
@@ -416,6 +434,10 @@ div.bigArticle {
   #auth form#signup_form,
   #auth form#signin_form {
     width: 90%;
+    button {
+      width: 99%;
+      margin-left: 0;
+    }
   }
 }
 @media only screen and (max-width: 320px) {
