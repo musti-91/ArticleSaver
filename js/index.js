@@ -42,13 +42,9 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById("auth").style.display = "none";
     document.getElementById("content").style.display = "block";
     // link function
-    var user = firebase.auth().currentUser;
-    if (user != null) {
-      let loggedEmail = user.email;
-      let name = user.displayName;
-      document.getElementById("user_info").innerHTML = loggedEmail;
-    }
-    if (user.sendEmailVerification()) {
+    let userInfo = firebase.auth().currentUser;
+    if (userInfo != null) {
+      document.getElementById("user_info").innerHTML = userInfo.email;
     }
     showArticles();
   } else {
@@ -60,7 +56,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 signin_form.addEventListener("submit", () => login());
 log_out.addEventListener("click", () => logout());
 signup_link.addEventListener("click", () => {
-  // show sign up area
+  // show sign up are
   setTimeout(() => {
     document.getElementById("signin_form").classList.add("zoomOut");
   }, 300);
