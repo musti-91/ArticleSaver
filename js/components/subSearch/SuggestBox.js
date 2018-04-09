@@ -51,12 +51,6 @@ export default class SuggestBox {
   }
   handleKeydown(e) {
     if (e.keyCode == 38 || e.keyCode == 40 || e.keyCode == 13) {
-      if (e.keyCode == 13) {
-        this.choose(
-          document.getElementById(`suggestItem-${this.selectIndex}`)
-            .childNodes[1].innerHTML
-        );
-      }
       if (e.keyCode == 40) {
         this.selectIndex++;
         if (this.holder.querySelector("li.chosen")) {
@@ -80,6 +74,12 @@ export default class SuggestBox {
         if (this.selectIndex == 1) {
           this.selectIndex = this.holder.childElementCount + 1;
         }
+      }
+      if (e.keyCode == 13) {
+        this.choose(
+          document.getElementById(`suggestItem-${this.selectIndex}`)
+            .childNodes[1].innerHTML
+        );
       }
     }
   }

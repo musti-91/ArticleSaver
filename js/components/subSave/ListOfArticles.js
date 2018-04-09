@@ -26,7 +26,9 @@ export default class ListOfArticles {
       });
   }
   init() {
-    let el = `<li data-id="${this.article.id}" class="animated rollIn">`;
+    let el = `<li data-id="${this.article.id}" id="save-${
+      this.article.id
+    }"class="animated rollIn">`;
     el += `     <img src='${this.article.image.full}'>
                 <h3>${this.article.title}
                   </br>
@@ -38,11 +40,14 @@ export default class ListOfArticles {
   }
   clcualteReadTime() {
     let readTime = Math.floor(this.artcileText.length / 60);
-    readTime = readTime.toString();
-    if (readTime.startsWith("0")) {
-      return readTime.substring(0, readTime.length - 1) + " sec";
-    } else {
-      return readTime.substring(0, readTime.length - 1) + " min";
+    if (readTime != 0) {
+      readTime = readTime.toString();
+      if (readTime.startsWith("0")) {
+        return readTime.substring(0, readTime.length - 1) + " sec";
+      } else {
+        return readTime.substring(0, readTime.length - 1) + " min";
+      }
     }
+    return "no text to";
   }
 }
