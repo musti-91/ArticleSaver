@@ -1,6 +1,5 @@
 import ListOfArticles from "./subSave/ListOfArticles";
 import Axios from "axios";
-import { parse } from "url";
 let popupS = require("popups");
 export default class SaveArticle {
   constructor(savedArticles, holder, firebaseRef) {

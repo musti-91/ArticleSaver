@@ -48,7 +48,9 @@ export default class SearchArticle {
               );
             });
           })
-          .catch("Error!");
+          .catch(error => {
+            alert(error);
+          });
       }
     });
     this.input.addEventListener("input", () => {
