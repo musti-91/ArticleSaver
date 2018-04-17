@@ -12,10 +12,9 @@ export default class SuggestBox {
     this.events();
   }
   getData() {
+    let searchVal = this.input.value.replace(" ", ",");
     Axios.get(
-      `https://nieuws.vtm.be/feed/articles/solr?format=json&query=${
-        this.input.value
-      }`
+      `https://nieuws.vtm.be/feed/articles/solr?format=json&query=${searchVal}`
     )
       .then(response => {
         const data = response.data.response;
@@ -33,7 +32,7 @@ export default class SuggestBox {
     this.holder.innerHTML = "";
     this.suggestions.forEach(element => {
       this.nr++;
-      html += `<li id="suggestItem-${this.nr}" class="animated lightSpeedIn">
+      html += `<li id="suggestItem-${this.nr}" class="animated fadeInDownBig">
                     <h4>${element.title}</h4>
           </li>`;
     });

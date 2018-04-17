@@ -28,8 +28,8 @@ export default class ListOfArticles {
   init() {
     let el = `<li data-id="${this.article.id}" id="save-${
       this.article.id
-    }"class="animated rollIn">`;
-    el += `     <img src='${this.article.image.full}'>
+    }"class="animated fadeInDownBig">`;
+    el += `     <img src='${this.article.image.thumb}'>
                 <h3>${this.article.title}
                   </br>
                   <p id="timer">${this.clcualteReadTime()} read</p>

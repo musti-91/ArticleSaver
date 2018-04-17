@@ -2,6 +2,11 @@ import SearchResults from "./subSearch/SearchResults";
 import Axios from "axios";
 import SuggestBox from "./subSearch/SuggestBox";
 
+/**
+ * @param  {} holder
+ * @param  {} savedArticlesList
+ * @param  {} firebaseRef
+ */
 export default class SearchArticle {
   constructor(holder, savedArticlesList, firebaseRef) {
     this.holder = holder;
@@ -17,7 +22,7 @@ export default class SearchArticle {
     let el = `<h2 class="title">Search Article</h2><hr>`;
     el += `<form id="form">
             <input type="text" id="in_val" class="input" autocomplete="off" autofocus>
-            <button class="button animated flipInX" id="search">Search</button>
+            <button class="button animated zoomIn" id="search">Search</button>
           </form>
           <ul id="resultsHolder"></ul>
           `;
@@ -31,9 +36,10 @@ export default class SearchArticle {
       e.preventDefault();
       this.articleHolder.innerHTML = "";
       if (this.validate(this.input)) {
-        this.button.style.display = "none";
         this.input.style.width = "100%";
-        let searchVal = this.input.value.replace(" ", ", ");
+        this.input.style.marginRight = 0;
+        this.button.style.display = "none";
+        let searchVal = this.input.value.replace(" ", ",");
         Axios.get(
           `https://nieuws.vtm.be/feed/articles/solr?format=json&query=${searchVal}`
         )
@@ -59,6 +65,7 @@ export default class SearchArticle {
         this.articleHolder.innerHTML = "";
         this.input.classList.remove("error");
         this.button.style.display = "block";
+        this.input.style.marginRight = "10px";
         clearInterval(timer);
         timer = setTimeout(() => {
           if (this.validate(this.input)) {
@@ -66,7 +73,7 @@ export default class SearchArticle {
           }
         });
       },
-      500
+      300
     );
   }
   validate(input) {

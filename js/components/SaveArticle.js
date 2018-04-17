@@ -37,7 +37,10 @@ export default class SaveArticle {
         let pos = this.savedArticles.indexOf(id);
         this.savedArticles.splice(pos, 1);
         // remove from DOM
-        e.target.parentElement.remove();
+        e.target.parentElement.classList.add("fadeOutRightBig");
+        setTimeout(() => {
+          e.target.parentElement.remove();
+        }, 750);
         // remove from firebase
         this.firebaseRef.set(this.savedArticles);
         // remove class  active from searchresults list
@@ -59,7 +62,7 @@ export default class SaveArticle {
                 .then(response => {
                   let item = response.data.response.items[0];
                   let html = `<div class="bigArticle" id="big-${item.id}">`;
-                  html += `<img src="${item.image.full}">
+                  html += `<img src="${item.image.thumb}">
                         <div><h2>${item.title}</h2>
                     <p>${item.airdate.formatted}</p>`;
                   html += `<p>${item.text_html}</p>`;

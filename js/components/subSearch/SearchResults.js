@@ -22,7 +22,7 @@ export default class SearchResults {
   createResult() {
     let el = `<li data-id="${this.item.fields.entity_id}" id="search-${
       this.item.fields.entity_id
-    }" class="animated slideInDown">`;
+    }" class="animated fadeInDownBig">`;
     el += `     <img src="${this.item.fields.image_path}">
                 <h3>${this.item.title} <p>${this.item.fields.ds_created
       .replace("T", " ")
@@ -30,7 +30,7 @@ export default class SearchResults {
                 <p>${this.item.snippets.content} <a href='${
       this.item.fields.url
     }' target="_blank">Read more</a></p>
-                <span id="heart" class="animated jello"></span>
+                <span id="heart"></span>
            </li>`;
     this.articleHolder.insertAdjacentHTML("beforeend", el);
     this.isSaved = this.inArray(this.item.fields.entity_id, this.savedArticles);
@@ -61,7 +61,7 @@ export default class SearchResults {
         mode: "modal",
         content: `<a href="#" id="loadingIcon"></a>`,
         labelOk: "",
-        className: "animated",
+        className: "bigArticle",
         onOpen: function() {
           setTimeout(() => {
             Axios.get(
@@ -69,12 +69,10 @@ export default class SearchResults {
             )
               .then(response => {
                 let item = response.data.response.items[0];
-                let html = `<div class="bigArticle animated" id="big-${
-                  item.id
-                }">`;
-                html += `<img src="${item.image.full}">
-                        <div><h2>${item.title}</h2>
-                    <p>${item.airdate.formatted}</p>`;
+                let html = `<div class="bigArticle" id="big-${item.id}">`;
+                html += `<img src="${item.image.thumb}">
+              <div><h2>${item.title}</h2>
+              <p>${item.airdate.formatted}</p>`;
                 html += `<p>${item.text_html}</p>`;
                 html += `<a href='${
                   item.url
@@ -84,7 +82,7 @@ export default class SearchResults {
               .catch(error => {
                 console.log(error);
               });
-          }, 450);
+          }, 300);
         }
       });
     }

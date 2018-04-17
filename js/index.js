@@ -6,7 +6,10 @@ import PerfectScrollbar from "perfect-scrollbar";
 
 Scrollbar.init(document.body);
 Login(showArticles);
-
+/** TODO/
+ * first article added three times
+ *
+ */
 function showArticles(firebase) {
   const firebaseRef = firebase.database().ref("articles");
   const searchHolder = getElement("searchHolder");

@@ -31,8 +31,8 @@
 </head>
 
 <body>
-  <div class="animated zoomInDown" id="auth">
-    <form action="#" id="signin_form" class="animated">
+  <div class="animated fadeInDown" id="auth">
+    <form action="#" id="signin_form" class="animated fadeInDownBig">
       <h2>Sign in</h2>
       <label for="email" class="label">Email</label>
       <input type="text" id="email" class="input" autocomplete="off">
@@ -44,7 +44,7 @@
       </p>
       <p id="handleErrors"></p>
     </form>
-    <form action="#" id="signup_form" class="animated zoomInDown">
+    <form action="#" id="signup_form" class="animated fadeInDown">
       <h2>Sign up</h2>
       <label for="newUserName">Name</label>
       <input type="text" class="input" id="newUserName">
@@ -57,17 +57,17 @@
       <p id="message"></p>
     </form>
   </div>
-  <div id="content" class="animated zoomInDown">
+  <div id="content" class="animated fadeInDown">
     <nav class="navbar">
       <h3>You logged in as
         <strong id="user_info"></strong>
       </h3>
       <button class="button is-danger " id="logout">Logout</button>
     </nav>
-    <div class="container animated infinite jackInTheBox">
-      <div id="searchHolder" class="block animated rubberBand">
+    <div class="container animated fadeInDownBig">
+      <div id="searchHolder" class="block animated fadeInDownBig">
       </div>
-      <div id="savedHolder" class="block animated wobble">
+      <div id="savedHolder" class="block animated fadeInDown">
       </div>
     </div>
   </div>
