@@ -2,6 +2,7 @@ import SaveArticle from "./components/SaveArticle";
 import SearchArticle from "./components/SearchArticle";
 import Scrollbar from "smooth-scrollbar";
 import Login from "./Login/login";
+import PerfectScrollbar from "perfect-scrollbar";
 
 Scrollbar.init(document.body);
 Login(showArticles);

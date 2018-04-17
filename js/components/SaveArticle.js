@@ -1,6 +1,7 @@
 import ListOfArticles from "./subSave/ListOfArticles";
 import Axios from "axios";
 let popupS = require("popups");
+
 export default class SaveArticle {
   constructor(savedArticles, holder, firebaseRef) {
     this.savedArticles = savedArticles;
@@ -46,9 +47,8 @@ export default class SaveArticle {
       } else if (e.target.parentElement.nodeName == "LI") {
         //  popups
         popupS.window({
-          mode: "text",
+          mode: "modal",
           content: `<a href="#" id="loadingIcon"></a>`,
-          labelOk: "",
           className: "animated bounceOut",
           onOpen: function() {
             setTimeout(() => {
@@ -58,9 +58,7 @@ export default class SaveArticle {
               )
                 .then(response => {
                   let item = response.data.response.items[0];
-                  let html = `<div class="bigArticle animated bounceIn" id="big-${
-                    item.id
-                  }">`;
+                  let html = `<div class="bigArticle" id="big-${item.id}">`;
                   html += `<img src="${item.image.full}">
                         <div><h2>${item.title}</h2>
                     <p>${item.airdate.formatted}</p>`;

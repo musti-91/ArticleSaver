@@ -58,10 +58,10 @@ export default class SearchResults {
       }
     } else {
       popupS.window({
-        mode: "text",
+        mode: "modal",
         content: `<a href="#" id="loadingIcon"></a>`,
         labelOk: "",
-        className: "animated bounceOut",
+        className: "animated",
         onOpen: function() {
           setTimeout(() => {
             Axios.get(
@@ -69,7 +69,7 @@ export default class SearchResults {
             )
               .then(response => {
                 let item = response.data.response.items[0];
-                let html = `<div class="bigArticle animated bounceIn" id="big-${
+                let html = `<div class="bigArticle animated" id="big-${
                   item.id
                 }">`;
                 html += `<img src="${item.image.full}">

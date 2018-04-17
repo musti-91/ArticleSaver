@@ -17,7 +17,7 @@ export default class SearchArticle {
     let el = `<h2 class="title">Search Article</h2><hr>`;
     el += `<form id="form">
             <input type="text" id="in_val" class="input" autocomplete="off" autofocus>
-            <button class="button animated infinite flipInX" id="search">Search</button>
+            <button class="button animated flipInX" id="search">Search</button>
           </form>
           <ul id="resultsHolder"></ul>
           `;
@@ -33,10 +33,9 @@ export default class SearchArticle {
       if (this.validate(this.input)) {
         this.button.style.display = "none";
         this.input.style.width = "100%";
+        let searchVal = this.input.value.replace(" ", ", ");
         Axios.get(
-          `https://nieuws.vtm.be/feed/articles/solr?format=json&query=${
-            this.input.value
-          }`
+          `https://nieuws.vtm.be/feed/articles/solr?format=json&query=${searchVal}`
         )
           .then(response => {
             response.data.response.items.forEach(item => {
@@ -53,22 +52,28 @@ export default class SearchArticle {
           });
       }
     });
-    this.input.addEventListener("input", () => {
-      this.articleHolder.innerHTML = "";
-      this.input.classList.remove("error");
-      this.button.style.display = "block";
-      if (this.validate(this.input)) {
-        new SuggestBox(this.input, this.articleHolder);
-      }
-    });
+    this.input.addEventListener(
+      "input",
+      () => {
+        let timer;
+        this.articleHolder.innerHTML = "";
+        this.input.classList.remove("error");
+        this.button.style.display = "block";
+        clearInterval(timer);
+        timer = setTimeout(() => {
+          if (this.validate(this.input)) {
+            new SuggestBox(this.input, this.articleHolder);
+          }
+        });
+      },
+      500
+    );
   }
   validate(input) {
     if (input.value.length <= 2) {
       this.input.classList.add("error");
-      this.button.classList.add("infinite");
       return false;
     }
-    this.button.classList.remove("infinite");
     this.input.classList.remove("error");
     return true;
   }
