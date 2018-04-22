@@ -213,9 +213,10 @@ html {
       img {
         width: 35%;
         height: 100px;
-        border-radius: 5%;
         margin-right: 1%;
         object-fit: cover;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
       }
       h3 {
         width: 60%;
@@ -299,7 +300,8 @@ html {
       margin: 2px;
       padding: 10px;
       color: white;
-      border-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
       width: 100%;
       line-height: 20px;
       font-family: "Lato" sans-serif;
@@ -316,8 +318,9 @@ html {
         width: 100px;
         height: 100px;
         margin-right: 5px;
-        border-radius: 5px;
         object-fit: cover;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
       }
       h3 {
         margin-right: 5px;
@@ -355,11 +358,57 @@ html {
     }
   }
 }
-// div>img +div>h2 +p + p +
-div.bigArticle {
+// #sliderHolder>.slider>img + a*2
+#sliderHolder {
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.1);
+  a {
+    line-height: 50px;
+    position: relative;
+    width: 10%;
+    background-color: inherit;
+    transition: all 500ms;
+    &:hover {
+      background-color: #756a68;
+    }
+    &::after {
+      @include pseudo($content: "\e803");
+      top: 50%;
+      left: 50%;
+      margin-left: -20px;
+      margin-top: -25px;
+      font-family: $icons;
+      font-size: 50px;
+      color: white;
+    }
+  }
+  a#next {
+    &::after {
+      content: "\e802";
+    }
+  }
+  .slider {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    border-radius: 5px;
+    > div {
+      width: 100%;
+      img {
+        @include responsive;
+      }
+    }
+  }
+}
+// div>img +div>h2 +p + p +
+
+div.bigArticle {
+  position: relative;
+  width: 100%;
+  height: 900px;
+  overflow: auto;
   display: flex;
   flex-wrap: wrap;
   img {
@@ -395,7 +444,11 @@ div.bigArticle {
 }
 #loadingIcon {
   display: block;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
   transition: all 300ms;
   width: 100px;
   height: 100px;
@@ -433,6 +486,29 @@ div.bigArticle {
 #popupS-close {
   top: -5px;
   right: 35px;
+}
+.popupS-layer .popupS-open {
+  width: 60%;
+  height: 100%;
+}
+.popupS-buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  & > button {
+    transition: all 300ms;
+    width: 48%;
+    text-align: center;
+    line-height: 30px;
+    font-family: sans-serif;
+    font-size: 16px;
+    border: 0;
+    border-radius: 5px;
+    outline: none;
+    &:hover:nth-child(2) {
+      background-color: red;
+    }
+  }
 }
 /*****************************************************/
 /********** responsive *******************************/

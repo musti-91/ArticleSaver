@@ -4,6 +4,12 @@ import popupS from "popups";
 import Heart from "./Heart";
 import ListOfArticles from "../subSave/ListOfArticles";
 export default class SearchResults {
+  /**
+   * @param  {number} item item that should search for it
+   * @param  {HTMLElement} articleHolder element that's hold search results
+   * @param  {Array} savedArticles my array where should save articles in it
+   * @param  {Reference} firebaseRef
+   */
   constructor(item, articleHolder, savedArticles, firebaseRef) {
     this.item = item;
     this.savedArticles = savedArticles;
@@ -12,12 +18,8 @@ export default class SearchResults {
     this.list = "";
     this.isSaved = "";
     this.heart = "";
-    this.addScrollbar();
     this.createResult();
     this.events();
-  }
-  addScrollbar() {
-    Scrollbar.init(document.getElementById("resultsHolder"));
   }
   createResult() {
     let el = `<li data-id="${this.item.fields.entity_id}" id="search-${
@@ -60,8 +62,7 @@ export default class SearchResults {
       popupS.window({
         mode: "modal",
         content: `<a href="#" id="loadingIcon"></a>`,
-        labelOk: "",
-        className: "bigArticle",
+        className: "",
         onOpen: function() {
           setTimeout(() => {
             Axios.get(

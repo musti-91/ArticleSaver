@@ -3,9 +3,9 @@ import Axios from "axios";
 import SuggestBox from "./subSearch/SuggestBox";
 
 /**
- * @param  {} holder
- * @param  {} savedArticlesList
- * @param  {} firebaseRef
+ * @param  {HTML Element} holder: parent Element holds all html
+ * @param  {Array} savedArticlesList
+ * @param  {Reference} firebaseRef
  */
 export default class SearchArticle {
   constructor(holder, savedArticlesList, firebaseRef) {

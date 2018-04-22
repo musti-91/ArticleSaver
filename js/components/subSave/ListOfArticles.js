@@ -1,6 +1,11 @@
 import Axios from "axios";
 import Scrollbar from "smooth-scrollbar";
 export default class ListOfArticles {
+  /**
+   * @param  {Number} id
+   * @param  {HTMLElement} holder
+   * @param  {Reference} firebaseRef
+   */
   constructor(id, holder, firebaseRef) {
     this.id = id;
     this.firebaseRef = firebaseRef;
@@ -10,7 +15,6 @@ export default class ListOfArticles {
     this.getArticle();
   }
   getArticle() {
-    Scrollbar.init(document.getElementById("listHolder"));
     Axios.get(
       `https://nieuws.vtm.be/feed/articles?format=json&fields=html&ids=${
         this.id

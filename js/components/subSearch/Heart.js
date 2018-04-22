@@ -1,4 +1,7 @@
-export default class Heart {
+/**
+ * @param  {boolean} isChecked return true if the list is Exist in Array
+ * @param  {HTMLLIElement} list li elment
+ */ export default class Heart {
   constructor(isChecked, list) {
     this.isChecked = isChecked;
     this.list = list;

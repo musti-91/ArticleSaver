@@ -1,6 +1,10 @@
 import Axios from "axios";
 
 export default class SuggestBox {
+  /**
+   * @param  {HTMLElement} input
+   * @param  {HTMLElement} holder
+   */
   constructor(input, holder) {
     this.input = input;
     this.holder = holder;

@@ -3,6 +3,11 @@ import Axios from "axios";
 let popupS = require("popups");
 
 export default class SaveArticle {
+  /**
+   * @param  {Array} savedArticles array takes to save articles
+   * @param  {HTMLElement} holder html element holds results
+   * @param  {Reference} firebaseRef firebase reference
+   */
   constructor(savedArticles, holder, firebaseRef) {
     this.savedArticles = savedArticles;
     this.holder = holder;
@@ -15,7 +20,7 @@ export default class SaveArticle {
   }
   createHTML() {
     let el = `<h2 class="title">Saved Articles</h2><hr>`;
-    el += `<ul id="listHolder" data-scrollbar>`;
+    el += `<ul id="listHolder" >`;
     el += `</ul>`;
     this.holder.insertAdjacentHTML("afterbegin", el);
     this.ulHolder = this.holder.querySelector("ul#listHolder");
@@ -33,30 +38,33 @@ export default class SaveArticle {
     this.ulHolder.addEventListener("click", e => {
       let id = e.target.parentElement.dataset.id;
       if (e.target.id == "trash_delete") {
-        // remove from Array
-        let pos = this.savedArticles.indexOf(id);
-        this.savedArticles.splice(pos, 1);
-        // remove from DOM
-        e.target.parentElement.classList.add("fadeOutRightBig");
-        setTimeout(() => {
-          e.target.parentElement.remove();
-        }, 750);
-        // remove from firebase
-        this.firebaseRef.set(this.savedArticles);
-        // remove class  active from searchresults list
-        document
-          .getElementById(`search-${parseInt(id)}`)
-          .childNodes[7].classList.remove("active");
+        // confirmation to delete an article
+        popupS.confirm({
+          content: "Delete this article?",
+          onSubmit: function() {
+            let pos = this.savedArticles.indexOf(id);
+            this.savedArticles.splice(pos, 1);
+            e.target.parentElement.classList.add("fadeOutRightBig");
+            setTimeout(() => {
+              e.target.parentElement.remove();
+            }, 750);
+            // remove from firebase
+            this.firebaseRef.set(this.savedArticles);
+            // remove class  active from searchresults list
+            document
+              .getElementById(`search-${parseInt(id)}`)
+              .childNodes[7].classList.remove("active");
+          }.bind(this)
+        });
       } else if (e.target.parentElement.nodeName == "LI") {
-        //  popups
+        //  popups show article
         popupS.window({
           mode: "modal",
           content: `<a href="#" id="loadingIcon"></a>`,
-          className: "animated bounceOut",
+          className: "",
           onOpen: function() {
             setTimeout(() => {
               Axios.get(
-                // todo later
                 `https://nieuws.vtm.be/feed/articles?format=json&fields=html&ids=${id}`
               )
                 .then(response => {

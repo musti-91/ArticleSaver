@@ -1,5 +1,10 @@
 import { config } from "./config";
 import * as firebase from "firebase";
+/**
+ * @param  {function Login(callback= firebase) {
+   // sign in and sign up fuction
+ }} callback
+ */
 export default function Login(callback) {
   firebase.initializeApp(config);
   firebase.auth().onAuthStateChanged(function(user) {
